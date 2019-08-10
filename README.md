@@ -26,6 +26,7 @@ Throughout the Concurrency course, you have been developing a traffic simulation
 1. Clone this repo.
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
+3.5 or if using Vagrantfile, compile using: `cmake -DCMAKE_PREFIX_PATH=/opt/installation/OpenCV-master .. && make`
 4. Run it: `./traffic_simulation`.
 
 ## Project Tasks
