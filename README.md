@@ -22,7 +22,7 @@ Throughout the Concurrency course, you have been developing a traffic simulation
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 
 ## Basic Build Instructions
-
+0. Use vagrant file to satisfy dependencies if you'd like.  `vagrant up`
 1. Clone this repo.
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
