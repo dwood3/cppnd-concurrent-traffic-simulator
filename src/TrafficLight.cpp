@@ -73,10 +73,9 @@ void TrafficLight::simulate()
 // virtual function which is executed in a thread
 void TrafficLight::cycleThroughPhases()
 {
-    std::random_device rd;
-    std::mt19937 mt(rd());
-    std::uniform_int_distribution<> uniformDist(4, 6);
-    int randomTime = uniformDist(mt);
+    const int LO = 4;
+    const int HI = 6;
+    float randomTime = LO + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(HI-LO)));
 
     // FP.2a : Implement the function with an infinite loop that measures the time between two loop cycles
     // and toggles the current phase of the traffic light between red and green and sends an update method
@@ -101,7 +100,7 @@ void TrafficLight::cycleThroughPhases()
             auto msg = _currentPhase;
             auto sentCondition = std::async(std::launch::async, &MessageQueue<TrafficLightPhase>::send, _msgQueue, std::move(msg));
             sentCondition.wait();
-            randomTime = uniformDist(mt);
+            randomTime = LO + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(HI-LO)));
             lastTime = std::chrono::system_clock::now();
         }
     }
